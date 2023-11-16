@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    <br/>
+    <h2 style="text-align: center;"> Product List </h2>
+
+  </div>
+  <div class="container">
+    <mat-form-field>
+      <input matInput (keyup)=filter($event) placeholder="Search"/>
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 my-custom-table">
+
+      <ng-container matColumnDef="idProduct">
+        <th mat-header-cell *matHeaderCellDef> idProduct </th>
+        <td mat-cell *matCellDef="let element"> {{element.idProduct}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="nameProduct">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.nameProduct}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descriptionProduct" class="mat-column-email">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.descriptionProduct}} </td>
+      </ng-container> 
+
+      <ng-container matColumnDef="priceProduct">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.priceProduct}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dimensionsProduct">
+        <th mat-header-cell *matHeaderCellDef> Dimensions </th>
+        <td mat-cell *matCellDef="let element"> {{element.dimensionsProduct}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order">
+        <th mat-header-cell *matHeaderCellDef> Order </th>
+        <td mat-cell *matCellDef="let element"> {{element.order.idOrder}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Category </th>
+        <td mat-cell *matCellDef="let element"> {{element.category.nameCategory}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator
+    [pageSizeOptions]="[10, 20, 50, 100]"
+    showFirstLastButtons
+  ></mat-paginator>
+    
+  </div>
+</body>
+</html>

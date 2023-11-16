@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Product Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Name Product</mat-label>
+          <input matInput placeholder="Name Product" formControlName="nameProduct" />
+          <mat-error
+            *ngIf="obtenerControlCampo('nameProduct')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Description" formControlName="descriptionProduct" />
+            <mat-error
+              *ngIf="obtenerControlCampo('descriptionProduct')?.errors?.['required']"
+            >
+              La descripción es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />           
+          <mat-form-field class="example-full-width">
+            <mat-label>Price</mat-label>
+            <input matInput placeholder="Price" formControlName="priceProduct" />
+            <mat-error
+              *ngIf="obtenerControlCampo('priceProduct')?.errors?.['required']"
+            >
+              El precio es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />           
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Dimensions</mat-label>
+            <input matInput placeholder="Dimensions" formControlName="dimensionsProduct" />
+            <mat-error
+              *ngIf="obtenerControlCampo('dimensionsProduct')?.errors?.['required']"
+            >
+              Las dimensiones son obligatorias.
+            </mat-error>
+          </mat-form-field>
+          
+          <mat-form-field class="example-full-width">
+            <mat-label>Order</mat-label>
+            <mat-select 
+            [(value)]="idOrderSeleccionada"
+            formControlName="order">
+              <mat-option *ngFor="let l of listaOrder" [value]="l.idOrder">
+                {{l.idOrder}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+            *ngIf="obtenerControlCampo('order')?.errors?.['required']"
+          >
+            El id orden es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br/> 
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Category</mat-label>
+          <mat-select 
+          [(value)]="idCategorySeleccionada"
+          formControlName="category">
+            <mat-option *ngFor="let l of listaCategory" [value]="l.idCategory">
+              {{l.nameCategory}}
+            </mat-option>
+          </mat-select>
+          <mat-error
+          *ngIf="obtenerControlCampo('category')?.errors?.['required']"
+        >
+          La categoria es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br/> 
+
+<br/>
+        <button mat-stroked-button color="accent" style="margin-right: 20px;">Aceptar</button>
+        <button mat-stroked-button color="warn" routerLink="/product">
+            Cancel
+          </button>
+<br/>
+        <p>{{ mensaje }}</p>
+        <br/>
+
+      </form>
+    </div>
+  </body>
+</html>

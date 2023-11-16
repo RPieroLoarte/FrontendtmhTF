@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Order Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Payment</mat-label>
+            <input
+              matInput
+              placeholder="Payment"
+              formControlName="payment"
+            />
+            <mat-error
+              *ngIf="obtenerControlCampo('payment')?.errors?.['required']"
+            >
+              El pago es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <br />
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Payment Date"
+            [matDatepicker]="picker1"
+            formControlName="paymentDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('paymentDate')?.errors?.['required']"
+          >
+            La fecha de pago es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Arrive Date"
+            [matDatepicker]="picker2"
+            formControlName="arriveDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('arriveDate')?.errors?.['required']"
+          >
+            La fecha de entrega es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Points</mat-label>
+          <input
+            matInput
+            placeholder="Points"
+            formControlName="points"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('points')?.errors?.['required']"
+          >
+            Los puntos son obligatorios.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Product</mat-label>
+          <mat-select [(value)]="idProductSeleccionada" formControlName="product">
+            <mat-option *ngFor="let l of listaProduct" [value]="l.idProduct">
+              {{ l.nameProduct }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('product')?.errors?.['required']">
+            El producto es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <button mat-stroked-button color="accent" style="margin-right: 20px">
+          Aceptar
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/records">
+          Cancel
+        </button>
+        <br />
+        <p>{{ mensaje }}</p>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

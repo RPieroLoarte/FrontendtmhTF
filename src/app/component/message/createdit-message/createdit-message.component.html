@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Message Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" />
+          <mat-error
+            *ngIf="obtenerControlCampo('title')?.errors?.['required']"
+          >
+            El título es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Content</mat-label>
+            <input matInput placeholder="Content" formControlName="content" />
+            <mat-error
+              *ngIf="obtenerControlCampo('content')?.errors?.['required']"
+            >
+              El contenido es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+
+          <mat-form-field class="example-full-width">
+            <mat-label>User Send</mat-label>
+            <mat-select 
+            [(value)]="idUserSeleccionada1"
+            formControlName="userSend">
+              <mat-option *ngFor="let p of listaUsers" [value]="p.idUser">
+                {{p.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+            *ngIf="obtenerControlCampo('userSend')?.errors?.['required']"
+          >
+            El usuario enviado es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+          <br />
+
+          <mat-form-field class="example-full-width">
+            <mat-label>User Receive</mat-label>
+            <mat-select 
+            [(value)]="idUserSeleccionada2"
+            formControlName="userReceive">
+              <mat-option *ngFor="let p of listaUsers" [value]="p.idUser">
+                {{p.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+            *ngIf="obtenerControlCampo('userReceive')?.errors?.['required']"
+          >
+            El usuario recibido es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+          <br />
+
+        <button mat-stroked-button color="accent" style="margin-right: 20px;">Aceptar</button>
+        <button mat-stroked-button color="warn" routerLink="/message">
+            Cancel
+          </button>
+<br/>
+        <p>{{ mensaje }}</p>
+        <br/>
+
+      </form>
+    </div>
+  </body>
+</html>

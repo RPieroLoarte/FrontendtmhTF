@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Order Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Shipping Date"
+            [matDatepicker]="picker1"
+            formControlName="shippingDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker1"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('shippingDate')?.errors?.['required']"
+          >
+            La fecha de envío es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field appearance="fill" class="example-full-width">
+          <input
+            matInput
+            placeholder="Arrive Date"
+            [matDatepicker]="picker2"
+            formControlName="arriveDate"
+          />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker2"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+          <mat-error
+            *ngIf="obtenerControlCampo('arriveDate')?.errors?.['required']"
+          >
+            La fecha de entrega es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Destination Country</mat-label>
+          <input
+            matInput
+            placeholder="Destination Country"
+            formControlName="destinationCountry"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('destinationCountry')?.errors?.['required']"
+          >
+            El destino del país es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Destination City</mat-label>
+          <input
+            matInput
+            placeholder="Destination City"
+            formControlName="destinationCity"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('destinationCity')?.errors?.['required']"
+          >
+            El destino de la ciudad es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Destination Address</mat-label>
+          <input
+            matInput
+            placeholder="Destination Address"
+            formControlName="destinationAddress"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('destinationAddress')?.errors?.['required']"
+          >
+            La dirección de destino es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Origin Country</mat-label>
+          <input
+            matInput
+            placeholder="Origin Country"
+            formControlName="originCountry"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('originCountry')?.errors?.['required']"
+          >
+            El país de origen es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Origin City</mat-label>
+          <input
+            matInput
+            placeholder="Origin City"
+            formControlName="originCity"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('originCity')?.errors?.['required']"
+          >
+            La ciudad de origen es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>User</mat-label>
+          <mat-select [(value)]="idUserSeleccionada1" formControlName="user">
+            <mat-option *ngFor="let l of listaUsers" [value]="l.idUser">
+              {{ l.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('user')?.errors?.['required']">
+            El usuario es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <button mat-stroked-button color="accent" style="margin-right: 20px">
+          Aceptar
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/order">
+          Cancel
+        </button>
+        <br />
+        <p>{{ mensaje }}</p>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

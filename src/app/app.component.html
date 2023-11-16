@@ -1,0 +1,223 @@
+<mat-toolbar class="custom-theme" color="primary">
+  <div class="toolbar-content">
+    <img
+      src="assets/logo.png"
+      alt="Logo de la aplicación"
+      class="toolbar-image"
+      style="max-width: 150px; max-height: 150px"
+    />
+  </div>
+  <div class="spacer"></div>
+  <!-- Espaciador para empujar los elementos hacia la derecha -->
+  <a class="scroll-link" href="#quienesSomos">Quiénes Somos</a>
+  <span class="space-between"></span>
+  <!-- Espacio en blanco -->
+  <a class="scroll-link" href="#esSimple">Es Simple</a>
+  <span class="space-between"></span>
+  <!-- Espacio en blanco -->
+  <a class="scroll-link" href="#beneficios">Beneficios</a>
+  <span class="space-between"></span>
+  <!-- Espacio en blanco -->
+  <button mat-icon-button [matMenuTriggerFor]="menuIcon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <!-- Resto de tu contenido del toolbar -->
+
+  <mat-menu #menuIcon="matMenu" class="custom-menu">
+    <button class="custom-menu" mat-menu-item [matMenuTriggerFor]="menuUser">
+      User
+    </button>
+    <button
+      class="custom-menu"
+      mat-menu-item
+      [matMenuTriggerFor]="menuProduct"
+      routerLink="/product"
+    >
+      Product
+    </button>
+    <button class="custom-menu" mat-menu-item [matMenuTriggerFor]="menuOrders">
+      Order
+    </button>
+    <button
+      class="custom-menu"
+      mat-menu-item
+      [matMenuTriggerFor]="menuMessage"
+      routerLink="/message"
+    >
+      Message
+    </button>
+
+    <button
+      class="custom-menu"
+      mat-menu-item
+      [matMenuTriggerFor]="menuNotification"
+      routerLink="/notification"
+    >
+      Notification
+    </button>
+
+    <button
+      class="custom-menu"
+      mat-menu-item
+      [matMenuTriggerFor]="menuCategory"
+      routerLink="/category"
+    >
+      Category
+    </button>
+
+    <button
+    class="custom-menu"
+    mat-menu-item
+    [matMenuTriggerFor]="menuRole"
+    routerLink="/Role"
+  >
+    Role
+  </button>
+
+  <button
+  class="custom-menu"
+  mat-menu-item
+  [matMenuTriggerFor]="menuForum"
+  routerLink="/Forum"
+>
+  Forum
+</button>
+
+<button
+class="custom-menu"
+mat-menu-item
+[matMenuTriggerFor]="menuRecord"
+routerLink="/records"
+>
+Records
+</button>
+
+  </mat-menu>
+
+  <mat-menu #menuUser="matMenu">
+    <button mat-menu-item routerLink="/user/new" class="custom-menu">
+      Add User
+    </button>
+    <button mat-menu-item routerLink="/user" class="custom-menu">
+      User List
+    </button>
+    <button mat-menu-item routerLink="/user/search" class="custom-menu">
+      Search User
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuProduct="matMenu">
+    <button mat-menu-item routerLink="/product/new" class="custom-menu">
+      Add Product
+    </button>
+    <button mat-menu-item routerLink="/product" class="custom-menu">
+      Product List
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuOrders="matMenu">
+    <button mat-menu-item routerLink="/order/new" class="custom-menu">
+      Add Order
+    </button>
+    <button mat-menu-item routerLink="/order" class="custom-menu">
+      Order List
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuMessage="matMenu">
+    <button mat-menu-item routerLink="/message/new" class="custom-menu">
+      Add Message
+    </button>
+    <button mat-menu-item routerLink="/message" class="custom-menu">
+      Message List
+    </button>
+  </mat-menu>
+
+  <mat-menu #menuNotification="matMenu">
+    <button mat-menu-item routerLink="/notification/new" class="custom-menu">
+      Add Notification
+    </button>
+    <button mat-menu-item routerLink="/notification" class="custom-menu">
+      Notification List
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuCategory="matMenu">
+    <button mat-menu-item routerLink="/category/new" class="custom-menu">
+      Add Category
+    </button>
+    <button mat-menu-item routerLink="/category" class="custom-menu">
+      Category List
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuRole="matMenu">
+    <button mat-menu-item routerLink="/Role/new" class="custom-menu">
+      Add Role
+    </button>
+    <button mat-menu-item routerLink="/Role" class="custom-menu">
+      Role List
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuForum="matMenu">
+    <button mat-menu-item routerLink="/Forum/new" class="custom-menu">
+      Add Forum
+    </button>
+    <button mat-menu-item routerLink="/Forum" class="custom-menu">
+      Forum List
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <mat-menu #menuRecord="matMenu">
+    <button mat-menu-item routerLink="/records/new" class="custom-menu">
+      Add Record
+    </button>
+    <button mat-menu-item routerLink="/records" class="custom-menu">
+      Record List
+    </button>
+    <!-- Agrega más elementos de menú para "User" si es necesario -->
+  </mat-menu>
+
+  <div id="quienesSomos">
+    <!-- Contenido de la sección Quiénes Somos -->
+  </div>
+
+  <div id="esSimple">
+    <!-- Contenido de la sección Es Simple -->
+  </div>
+
+  <div id="beneficios">
+    <!-- Contenido de la sección Beneficios -->
+  </div>
+</mat-toolbar>
+
+<body>
+  <div class="background-image">
+    <div class="centered-content">
+      <h1 class="title">¿Quieres algo del extranjero?</h1>
+      <p class="p1">Un turista te lo traerá</p>
+      <div class="button-container">
+        <div class="button-text">
+          <button class="button" style="padding: 15px 25px; margin-right: 80px">
+            Registrarme
+          </button>
+          <p class="text-below-button; p2">Soy nuevo no tengo cuenta</p>
+        </div>
+        <div class="button-text">
+          <button class="button" style="padding: 15px 25px">
+            Iniciar Sesión
+          </button>
+          <p class="text-below-button; p3">Ya tengo cuenta</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<router-outlet></router-outlet>

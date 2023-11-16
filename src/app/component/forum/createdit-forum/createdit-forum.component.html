@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Forum Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Forum</mat-label>
+          <input
+            matInput
+            placeholder="Forum"
+            formControlName="forum"
+          />
+          <mat-error
+            *ngIf="obtenerControlCampo('forum')?.errors?.['required']"
+          >
+            El forum es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <mat-form-field appearance="fill" class="example-full-width">
+            <input
+              matInput
+              placeholder="Date"
+              [matDatepicker]="picker"
+              formControlName="date"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('date')?.errors?.['required']"
+            >
+              La fecha es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+          <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>User</mat-label>
+          <mat-select [(value)]="idUserSeleccionada" formControlName="user">
+            <mat-option *ngFor="let l of listaUsers" [value]="l.idUser">
+              {{ l.name }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="obtenerControlCampo('user')?.errors?.['required']">
+            El usuario es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+        <br />
+
+        <button mat-stroked-button color="accent" style="margin-right: 20px">
+          Aceptar
+        </button>
+        <button mat-stroked-button color="warn" routerLink="/order">
+          Cancel
+        </button>
+        <br />
+        <p>{{ mensaje }}</p>
+        <br />
+      </form>
+    </div>
+  </body>
+</html>

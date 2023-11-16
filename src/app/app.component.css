@@ -1,0 +1,181 @@
+.toolbar-content {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .custom-menu:hover {
+    color: lightskyblue; /* Cambia el color al pasar el cursor por encima */
+  }
+
+  .toolbar-text {
+    margin-left: 20px; /* Ajusta el margen derecho según tus necesidades */
+  }
+  /* styles.css */
+/* Estilo personalizado para la barra de herramientas */
+.mat-toolbar.mat-primary {
+  background-color: lightblue;
+  color: white; /* Cambia el color del texto si es necesario */
+}
+.toolbar-image {
+  object-fit: contain;
+  width: 150px;
+  height: 130px;
+}
+.mat-toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Ajusta el valor del índice z según sea necesario para que esté por encima de otros elementos */
+  height: 100px; /* Cambia el valor según tus necesidades */
+}
+.mat-toolbar button {
+  font-size: 18px; /* Ajusta el valor según el tamaño de fuente deseado */
+}
+
+.mat-toolbar img.toolbar-image {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+/* Para el título o texto en el toolbar (por ejemplo, "Quienes somos" y "Beneficios") */
+.mat-toolbar .mat-button-wrapper {
+  font-size: 100px; /* Ajusta el valor según el tamaño de fuente deseado */
+}
+
+.space-between {
+  margin: 0 40px; 
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/assets/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.background-image {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5 ); /* Fondo semi-transparente si lo deseas */
+}
+
+.centered-content {
+  text-align: center;
+}
+
+/* Estilos para los botones */
+.button {
+  
+  padding: 30px 60px; /* Aumenta el relleno en la parte superior e inferior y los lados */
+  font-size: 16px;
+  background-color: #6e94bd;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 100px; /* Ajusta el margen superior para mover los botones más abajo */
+  font-size: 20px;
+  font-family: 'Tahoma', 'Segoe UI', Tahoma, Verdana, sans-serif; /* Utilizando la fuente Roboto de Google Fonts */
+  width: 200px; /* Ajusta el ancho del botón según tus preferencias */
+}
+
+/* Estilos para el contenedor de los botones */
+.centered-content {
+  text-align: center;
+  margin-top: 80px; /* Ajusta el margen superior para mover el contenido más abajo */
+}
+
+/* Estilo para los enlaces del menú */
+.scroll-link {
+  text-decoration: none; /* Elimina el subrayado */
+  color: #333; /* Cambia el color del texto a tu preferencia */
+}
+
+/* Estilo para los enlaces del menú al pasar el cursor por encima */
+.scroll-link:hover {
+  color: lightseagreen; /* Cambia el color al pasar el cursor por encima */
+}
+
+.title {
+  
+  font-weight: 600;
+  font-size: 4em; /* Tamaño de fuente grande */
+  text-align: center; /* Texto centrado */
+  color: black; /* Color de texto blanco o el que desees */
+  margin-bottom: 39px; /* Espacio inferior */
+  margin-top: 300px; /* Ajusta el margen superior para mover los botones más abajo */
+  font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif; /* Utilizando la fuente Roboto de Google Fonts */
+}
+
+.p1 {
+  font-weight: 600;
+  font-size: 2em; /* Tamaño de fuente para el subtexto */
+  text-align: center; /* Texto centrado */
+  color: black; /* Color de texto blanco o el que desees */
+  font-family: SF Pro Display,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif; /* Utilizando la fuente Roboto de Google Fonts */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.button-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 10px;
+}
+
+button {
+  margin-bottom: 0px;
+}
+
+.text-below-button {
+  margin-bottom: 10px; /* Ajusta el margen como desees */
+  font-size: 1em;
+  color: black;
+  text-align: center;
+}
+
+.p2 {
+  font-weight: 450;
+  font-size: 1em;
+  color: black;
+  text-align: center;
+  margin-left: 0px;
+  margin-right: 75px;
+  margin-bottom: 0px; /* Espacio inferior */
+
+}
+
+.p3 {
+  font-weight: 450;
+  font-size: 1em;
+  color: black;
+  text-align: center;
+  margin-left: 19px;
+  margin-right: 20px;
+  margin-bottom: 0px; /* Espacio inferior */
+
+}
+
+
+
+
+
+
+
+  
+  
+  

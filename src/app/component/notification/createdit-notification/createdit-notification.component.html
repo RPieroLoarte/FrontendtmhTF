@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Notification Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName="title" />
+          <mat-error
+            *ngIf="obtenerControlCampo('title')?.errors?.['required']"
+          >
+            El título es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Description</mat-label>
+            <input matInput placeholder="Description" formControlName="description" />
+            <mat-error
+              *ngIf="obtenerControlCampo('description')?.errors?.['required']"
+            >
+              La descripción es obligatorio.
+            </mat-error>
+          </mat-form-field>
+          <br />
+        
+          <mat-form-field appearance="fill" class="example-full-width">
+            <input
+              matInput
+              placeholder="Date"
+              [matDatepicker]="picker"
+              formControlName="date"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error
+              *ngIf="obtenerControlCampo('date')?.errors?.['required']"
+            >
+              La fecha es obligatoria.
+            </mat-error>
+          </mat-form-field>
+          <br />
+        
+          <mat-form-field class="example-full-width">
+            <mat-label>Viewed</mat-label>
+            <mat-select formControlName="viewed">
+              <mat-option *ngFor="let v of view" [value]="v.value">
+                {{v.viewValue}}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="obtenerControlCampo('viewed')?.errors?.['required']">
+              El visto es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />
+
+          <mat-form-field class="example-full-width">
+            <mat-label>User</mat-label>
+            <mat-select 
+            [(value)]="idUserSeleccionada1"
+            formControlName="user">
+              <mat-option *ngFor="let p of listaUsers" [value]="p.idUser">
+                {{p.name}}
+              </mat-option>
+            </mat-select>
+            <mat-error
+            *ngIf="obtenerControlCampo('user')?.errors?.['required']"
+          >
+            El usuario es obligatorio.
+          </mat-error>
+        </mat-form-field>
+
+          <br />
+
+        <button mat-stroked-button color="accent" style="margin-right: 20px;">Aceptar</button>
+        <button mat-stroked-button color="warn" routerLink="/notification">
+            Cancel
+          </button>
+<br/>
+        <p>{{ mensaje }}</p>
+        <br/>
+
+      </form>
+    </div>
+  </body>
+</html>

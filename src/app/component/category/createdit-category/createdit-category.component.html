@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <br />
+      <h2>Category Register</h2>
+      <form [formGroup]="form" (submit)="accept()" class="example-form">
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Name Category</mat-label>
+          <input matInput placeholder="Name Category" formControlName="nameCategory" />
+          <mat-error
+            *ngIf="obtenerControlCampo('nameCategory')?.errors?.['required']"
+          >
+            El nombre es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Details</mat-label>
+            <input matInput placeholder="Details" formControlName="detailsCategory" />
+            <mat-error
+              *ngIf="obtenerControlCampo('detailsCategory')?.errors?.['required']"
+            >
+              La descripción es obligatorio.
+            </mat-error>
+          </mat-form-field>
+
+          <br />         
+<br/>
+        <button mat-stroked-button color="accent" style="margin-right: 20px;">Aceptar</button>
+        <button mat-stroked-button color="warn" routerLink="/category">
+            Cancel
+          </button>
+<br/>
+        <p>{{ mensaje }}</p>
+        <br/>
+
+      </form>
+    </div>
+  </body>
+</html>
